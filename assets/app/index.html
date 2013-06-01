@@ -1,0 +1,97 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/bootstrap.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="clientApp" ng-controller="AppCtrl">
+    <!--[if lt IE 7]>
+      <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+      <script src="components/es5-shim/es5-shim.js"></script>
+      <script src="components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div id="header" ng-controller="HeaderCtrl">
+      <div id="menu" ng-controller="MenuCtrl">
+        <div ng-show="shown">
+          <span class="btn" hm-tap="toggleMenu()">-<br>-</span>
+          <div ng-show="open">
+            <ul ng-show="states.isLoggedIn">
+              <li hm-tap="$state.transitionTo('map')">Book a taxi</li>
+              <li>My bookings</li>
+              <li>Profile</li>
+              <li hm-tap="$state.transitionTo('about')">About us</li>
+              <li>Support</li>
+            </ul>
+            <ul ng-hide="states.isLoggedIn">
+              <li hm-tap="goTo('user.anonymous')">Register now</li>
+              <li hm-tap="goTo('about')">About us</li>
+              <li>Support</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <h1>{{title}}</h1>
+    </div>
+    <div class="container" ng-view></div>
+    <script src="components/phonegap/lib/android/cordova-2.7.0.js"></script>
+    <script src="components/underscore/underscore.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+    <script src="components/angular/angular.js"></script>
+    <script src="components/taxinow-google-maps/taxinow-google-maps.js"></script>
+    <script src="components/ui-router/release/angular-ui-router.js"></script>
+    <script src="components/angular-resource/angular-resource.js"></script>
+    <script src="components/hammerjs/dist/hammer.js"></script>
+    <script src="components/angular-hammer/angular-hammer.js"></script>
+    <script src="components/angular-ui/build/angular-ui.js"></script>
+    <script src="components/angular-cookies/angular-cookies.js"></script>
+    <script src="components/angular-sanitize/angular-sanitize.js"></script>
+
+    <!-- build:js scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/services/SocketService.js"></script>
+    <script src="scripts/controllers/header.js"></script>
+    <script src="scripts/controllers/menu.js"></script>
+    <script src="scripts/controllers/startup.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    
+    <script src="scripts/services/AppStates.js"></script>
+    <script src="scripts/controllers/map.js"></script>
+    <script src="scripts/controllers/app.js"></script>
+    <script src="scripts/controllers/register.js"></script>
+    <script src="scripts/controllers/account.js"></script>
+    <script src="scripts/services/AccountService.js"></script>
+    <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/services/PreferencesService.js"></script>
+    <script src="scripts/controllers/preferences.js"></script>
+    <script src="scripts/controllers/tutorial.js"></script>
+    <script src="scripts/services/cordovaReady.js"></script>
+    <script src="scripts/services/GeolocationService.js"></script>
+    <script src="scripts/controllers/language.js"></script>
+    <script src="scripts/controllers/pickup.js"></script>
+    <!-- endbuild -->
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+  </body>
+</html>

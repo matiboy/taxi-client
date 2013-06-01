@@ -1,0 +1,15 @@
+<p>This is the tutorial view.</p>
+<span class="btn" hm-tap="skipTutorial()">Skip</span>
+<div ng-switch on="step">
+	<div ng-switch-when="1">
+		First part
+		<span class="btn" hm-tap="toStep(2)">Next</span>
+	</div>
+	<div ng-switch-when="2">
+		Second part
+		<span class="btn" hm-tap="toStep(1)">Prev</span><span class="btn" hm-tap="toStep(3)">Next</span>
+	</div>
+	<div ng-switch-when="3">
+		Third part
+		<span class="btn" hm-tap="toStep(2)">Prev</span><span class="btn" hm-tap="goTo('map')">Done</span>
+	</div>

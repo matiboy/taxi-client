@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('clientApp')
-  .controller('MapCtrl', ['$scope', 'GeolocationService', 'tgmCommunicationService', '$q', 'AppStates', function ($scope, GeolocationService, tgmCommunicationService, $q, AppStates) {
+  .controller('MapCtrl', ['$scope', 'GeolocationService', 'tgmCommunicationService', '$q', 'AppStates', 'PreferencesService', function ($scope, GeolocationService, tgmCommunicationService, $q, AppStates, PreferencesService) {
   	var map,
   		autocompleteService = new google.maps.places.AutocompleteService(),
   		mapDeferred = $q.defer(),
@@ -12,9 +12,17 @@ angular.module('clientApp')
   	};
   	$scope.results = [];
 
-  	var position = AppStates.get(AppStates.Keys.CURRENT_POSITION);
+  	AppStates.set(AppStates.Keys.LANGUAGE, PreferencesService.get(PreferencesService.Keys.LANGUAGE));
+  	console.log(AppStates);
 
-  	$scope.query = "";
+  	var position = AppStates.get(AppStates.Keys.CURRENT_POSITION);
+  	$scope.map = null;
+  	console.log($scope.map);
+  	$scope.$watch($scope.map, function(nv, ov)
+
+  	{
+  		console.log(nv, ov);
+  	}, true);
 
     GeolocationService.getCurrentPosition(function (position) {
     	$scope.coordinates = position.coords;
@@ -29,10 +37,8 @@ angular.module('clientApp')
 			mapDeferred.resolve();
 		}
     });
-
     // This will ensure that the map is created
     $q.all([mapDeferred.promise, country]).then(function(res){
-    	console.log(res);
     	$scope.$watch('query', _.debounce(function(nv, ov){
 	    	if(nv){
 	    		autocompleteService.getQueryPredictions({

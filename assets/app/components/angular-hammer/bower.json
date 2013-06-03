@@ -1,0 +1,23 @@
+{
+  "name": "angular-hammer",
+  "version": "1.0.1",
+  "main": "angular-hammer.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "dependencies": {
+    "angular": "~1.0.6",
+    "hammerjs": "~1.0.5"
+  },
+  "gitHead": "0ddbc02ae0feef9444b7299ce5472cfea238eb04",
+  "readme": "Angular Hammer v2\r\n=================\r\n\r\nWithin an AngularJS application, allows you to specify custom behaviour on Hammer.js touch events.\r\n\r\n[See it in action](http://monospaced.github.io/angular-hammer).\r\n\r\nUsage\r\n-----\r\n\r\nas attribute\r\n\r\n    hm-tap=\"{expression}\"\r\n\r\nas class\r\n\r\n    class=\"hm-tap: {expression};\"\r\n\r\nchange the default settings for the instance by adding a second attribute or class with [options](https://github.com/EightMedia/hammer.js/wiki/Getting-Started#gesture-options)\r\n\r\n    hm-options=\"{drag: false, transform: false}\"\r\n\r\n    class=\"hm-options: {drag: false, transform: false};\"\r\n\r\nInstall\r\n-------\r\n\r\n    bower install monospaced/angular-hammer\r\n\r\nInclude the `angular-hammer.js` script provided by this component in your app, and add `hmTouchEvents` to your app’s dependencies.\r\n\r\nRequires [Hammer.js](http://eightmedia.github.io/hammer.js/), tested with `v1.0.5`.\r\n\r\nDemo\r\n----------------\r\n\r\n[monospaced.github.io/angular-hammer](http://monospaced.github.io/angular-hammer)",
+  "readmeFilename": "README.md",
+  "_id": "angular-hammer@1.0.1",
+  "description": "Angular Hammer v2\r =================",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/monospaced/angular-hammer.git"
+  }
+}

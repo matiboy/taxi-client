@@ -11,7 +11,7 @@ angular.module('clientApp', ['hmTouchEvents', 'ui', 'ui.state', 'taxinowGoogleMa
     })
     .when('/tutorial', {
       templateUrl: 'views/tutorial.html',
-      controller: 'TutorialCtrl'
+      controller: 'TutorialCtrl',
       hideMenu: true
     })
     .when('/language', {
